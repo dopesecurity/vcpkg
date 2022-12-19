@@ -1,0 +1,22 @@
+diff --git a/lib/select.c b/lib/select.c
+index 2ac0746..c69f205 100644
+--- a/lib/select.c
++++ b/lib/select.c
+@@ -311,7 +311,7 @@ int Curl_poll(struct pollfd ufds[], unsigned int nfds, timediff_t timeout_ms)
+     pending_ms = 0;
+   r = poll(ufds, nfds, pending_ms);
+   if(r <= 0) {
+-    if((r == -1) && (SOCKERRNO == EINTR))
++    if((r == -1) && (SOCKERRNO == EINTR || SOCKERRNO == EAGAIN))
+       /* make EINTR from select or poll not a "lethal" error */
+       r = 0;
+     return r;
+@@ -359,7 +359,7 @@ int Curl_poll(struct pollfd ufds[], unsigned int nfds, timediff_t timeout_ms)
+   */
+   r = our_select(maxfd, &fds_read, &fds_write, &fds_err, timeout_ms);
+   if(r <= 0) {
+-    if((r == -1) && (SOCKERRNO == EINTR))
++    if((r == -1) && (SOCKERRNO == EINTR || SOCKERRNO == EAGAIN))
+       /* make EINTR from select or poll not a "lethal" error */
+       r = 0;
+     return r;
