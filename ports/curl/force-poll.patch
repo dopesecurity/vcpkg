@@ -1,0 +1,23 @@
+diff --git a/m4/curl-functions.m4 b/m4/curl-functions.m4
+index 49ab0b03f..49d892b1f 100644
+--- a/m4/curl-functions.m4
++++ b/m4/curl-functions.m4
+@@ -4103,18 +4103,6 @@ AC_DEFUN([CURL_CHECK_FUNC_POLL], [
+   tst_works_poll="unknown"
+   tst_allow_poll="unknown"
+   #
+-  case $host_os in
+-    darwin*|interix*)
+-      dnl poll() does not work on these platforms
+-      dnl Interix: "does provide poll(), but the implementing developer must
+-      dnl have been in a bad mood, because poll() only works on the /proc
+-      dnl filesystem here"
+-      dnl macOS: poll() first didn't exist, then was broken until fixed in 10.9
+-      dnl only to break again in 10.12.
+-      curl_disallow_poll="yes"
+-      tst_compi_poll="no"
+-      ;;
+-  esac
+   #
+   AC_MSG_CHECKING([if poll can be linked])
+   AC_LINK_IFELSE([
