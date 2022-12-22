@@ -1,21 +1,20 @@
-diff --git a/CMake/OtherTests.cmake b/CMake/OtherTests.cmake
-index b3031f7..8f42bef 100644
+iff --git a/CMake/OtherTests.cmake b/CMake/OtherTests.cmake
+index b3031f7..a5c7b71 100644
 --- a/CMake/OtherTests.cmake
 +++ b/CMake/OtherTests.cmake
-@@ -86,9 +86,6 @@ endif()
+@@ -85,8 +85,6 @@ endif()
+ 
  unset(CMAKE_TRY_COMPILE_TARGET_TYPE)
  
- if(NOT DEFINED CMAKE_TOOLCHAIN_FILE)
+-if(NOT DEFINED CMAKE_TOOLCHAIN_FILE)
 -  if(NOT ${CMAKE_SYSTEM_NAME} MATCHES "Darwin" AND NOT ${CMAKE_SYSTEM_NAME} MATCHES "iOS")
--  # only try this on non-apple platforms
--
+   # only try this on non-apple platforms
+ 
    # if not cross-compilation...
-   include(CheckCSourceRuns)
-   set(CMAKE_REQUIRED_FLAGS "")
-@@ -131,6 +128,5 @@ if(NOT DEFINED CMAKE_TOOLCHAIN_FILE)
+@@ -131,6 +129,4 @@ if(NOT DEFINED CMAKE_TOOLCHAIN_FILE)
          }
          return 0;
      }" HAVE_POLL_FINE)
 -  endif()
- endif()
+-endif()
  
