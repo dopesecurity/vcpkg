@@ -1,12 +1,11 @@
 diff --git a/CMake/OtherTests.cmake b/CMake/OtherTests.cmake
-index ed8d28a21..bd077f980 100644
+index ed8d28a21..4c435ecb1 100644
 --- a/CMake/OtherTests.cmake
 +++ b/CMake/OtherTests.cmake
-@@ -84,53 +84,4 @@ if(HAVE_SIZEOF_STRUCT_SOCKADDR_STORAGE)
- endif()
+@@ -85,52 +85,4 @@ endif()
  
  unset(CMAKE_TRY_COMPILE_TARGET_TYPE)
--
+ 
 -if(NOT CMAKE_CROSSCOMPILING)
 -  if(NOT ${CMAKE_SYSTEM_NAME} MATCHES "Darwin" AND NOT ${CMAKE_SYSTEM_NAME} MATCHES "iOS")
 -    # only try this on non-apple platforms
